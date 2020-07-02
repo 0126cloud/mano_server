@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 02, 2020 at 01:16 AM
+-- Generation Time: Jul 02, 2020 at 03:03 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -114,6 +114,13 @@ CREATE TABLE `comment` (
   `parentReply` int(11) DEFAULT NULL,
   `commentImg` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comment`
+--
+
+INSERT INTO `comment` (`cid`, `id`, `username`, `text`, `edited`, `completed`, `heart`, `parentReply`, `commentImg`) VALUES
+(97, 1593693549870, 'cindy', 'nice course~~', 0, 0, 5, NULL, '');
 
 -- --------------------------------------------------------
 
@@ -521,7 +528,8 @@ INSERT INTO `orders` (`orderId`, `orderNumber`, `memberId`, `ship_name`, `orderP
 (161, 1593632482379, 'M010', '陳辛蒂', '0987778777', '南投縣', '埔里鎮', '大有路一段92號', '2020-07-02 11:41:22', '未出貨', 'ATM轉帳', '未付款', '2020-07-02 03:41:22', 0, 0, 1850, '', '2020-07-02 03:41:22'),
 (162, 1593633024852, 'M010', '陳辛蒂', '0987778777', '南投縣', '埔里鎮', '大有路一段92號', '2020-07-02 11:50:24', '未出貨', 'ATM轉帳', '未付款', '2020-07-02 03:50:24', 150, 14, 256, '', '2020-07-02 03:50:24'),
 (163, 1593633078970, 'M010', '陳辛蒂', '0987778777', '南投縣', '埔里鎮', '大有路一段92號', '2020-07-02 11:51:18', '未出貨', '信用卡', '已付款', '2020-07-02 03:51:18', 0, 25, 475, '', '2020-07-02 03:51:18'),
-(164, 1593645326247, 'M010', '陳辛蒂', '0987778777', '南投縣', '埔里鎮', '大有路一段92號', '2020-07-02 15:15:26', '未出貨', '信用卡', '已付款', '2020-07-02 07:15:26', 150, 0, 210, '', '2020-07-02 07:15:26');
+(164, 1593645326247, 'M010', '陳辛蒂', '0987778777', '南投縣', '埔里鎮', '大有路一段92號', '2020-07-02 15:15:26', '未出貨', '信用卡', '已付款', '2020-07-02 07:15:26', 150, 0, 210, '', '2020-07-02 07:15:26'),
+(165, 1593648616190, 'M010', '陳辛蒂', '0987778777', '南投縣', '埔里鎮', '大有路一段92號', '2020-07-02 16:10:16', '未出貨', 'LinePay', '未付款', '2020-07-02 08:10:16', 100, 0, 1630, '', '2020-07-02 08:10:16');
 
 -- --------------------------------------------------------
 
@@ -570,7 +578,10 @@ INSERT INTO `order_lists` (`orderListId`, `orderId`, `itemId`, `itemName`, `cour
 (286, '161', '', '', '5', '端午限定-抹茶冰心粽', 350, 1, 350, '2020-07-02 03:41:22', '2020-07-02 03:41:22'),
 (287, '162', '100', '冰抹茶拿鐵', '', '', 120, 1, 120, '2020-07-02 03:50:24', '2020-07-02 03:50:24'),
 (288, '163', '', '', '3', '抹茶毛巾卷', 500, 1, 500, '2020-07-02 03:51:18', '2020-07-02 03:51:18'),
-(289, '164', '67', '抹茶西米露', '', '', 60, 1, 60, '2020-07-02 07:15:26', '2020-07-02 07:15:26');
+(289, '164', '67', '抹茶西米露', '', '', 60, 1, 60, '2020-07-02 07:15:26', '2020-07-02 07:15:26'),
+(290, '165', '145', '抹茶指甲油', '', '', 280, 1, 280, '2020-07-02 08:10:16', '2020-07-02 08:10:16'),
+(291, '165', '', '', '2', '抹茶磅蛋糕手作', 400, 1, 400, '2020-07-02 08:10:16', '2020-07-02 08:10:16'),
+(292, '165', '', '', '1', '抹茶茶道課', 850, 1, 850, '2020-07-02 08:10:16', '2020-07-02 08:10:16');
 
 -- --------------------------------------------------------
 
@@ -636,7 +647,7 @@ CREATE TABLE `rel_coupon_member` (
   `memberId` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `discountID` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `use_times` int(20) NOT NULL DEFAULT 0,
-  `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `updated` datetime NOT NULL DEFAULT current_timestamp(),
   `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -644,7 +655,7 @@ CREATE TABLE `rel_coupon_member` (
 -- Dumping data for table `rel_coupon_member`
 --
 
-INSERT INTO `rel_coupon_member` (`rel_coupon_member_id`, `memberId`, `discountID`, `use_times`, `updated_at`, `created_at`) VALUES
+INSERT INTO `rel_coupon_member` (`rel_coupon_member_id`, `memberId`, `discountID`, `use_times`, `updated`, `created_at`) VALUES
 (1, 'M002', 'D307', 11, '2020-06-21 01:08:58', '2020-06-15 23:20:44'),
 (2, 'M003', 'D307', 0, '2020-06-15 23:20:44', '2020-06-15 23:20:44'),
 (3, 'M005', 'D311', 0, '2020-06-15 23:23:56', '2020-06-15 23:20:44'),
@@ -657,9 +668,9 @@ INSERT INTO `rel_coupon_member` (`rel_coupon_member_id`, `memberId`, `discountID
 (10, 'M002', 'D100', 0, '2020-06-15 23:20:44', '2020-06-15 23:20:44'),
 (11, 'M003', 'D311', 0, '2020-06-15 23:24:06', '2020-06-15 23:20:44'),
 (12, 'M033', 'D003', 0, '2020-06-15 23:20:44', '2020-06-15 23:20:44'),
-(13, 'M010', 'D311', 24, '2020-07-01 14:09:47', '2020-06-25 00:14:30'),
-(14, 'M010', 'D004', 1, '2020-07-01 14:45:12', '2020-06-25 00:14:37'),
-(15, 'M006', 'D004', 0, '2020-06-27 22:37:06', '2020-06-25 00:14:37'),
+(13, 'M010', 'D311', 22, '2020-06-25 20:03:37', '2020-06-25 00:14:30'),
+(14, 'M010', 'D004', 0, '2020-06-27 22:37:03', '2020-06-25 00:14:37'),
+(15, 'M005', 'D004', 0, '2020-07-02 14:16:34', '2020-07-02 14:16:34'),
 (16, 'M007', 'D004', 0, '2020-06-27 22:37:09', '2020-06-25 00:14:37'),
 (17, 'M008', 'D004', 0, '2020-06-27 22:37:12', '2020-06-25 00:14:37'),
 (18, 'M009', 'D004', 0, '2020-06-27 22:37:14', '2020-06-25 00:14:37'),
@@ -677,7 +688,12 @@ INSERT INTO `rel_coupon_member` (`rel_coupon_member_id`, `memberId`, `discountID
 (31, 'M008', 'D311', 0, '2020-06-27 22:39:23', '2020-06-25 00:14:37'),
 (32, 'M009', 'D311', 0, '2020-06-27 22:39:23', '2020-06-25 00:14:37'),
 (34, 'M011', 'D311', 0, '2020-06-27 22:39:23', '2020-06-25 00:14:37'),
-(35, 'M001', 'D311', 0, '2020-06-27 22:39:23', '2020-06-25 00:14:37');
+(35, 'M001', 'D311', 0, '2020-06-27 22:39:23', '2020-06-25 00:14:37'),
+(46, 'M008', 'D308', 0, '2020-07-02 15:07:57', '2020-07-02 15:07:57'),
+(47, 'M008', 'D308', 0, '2020-07-02 15:19:33', '2020-07-02 15:19:33'),
+(48, 'M009', 'D308', 0, '2020-07-02 15:20:31', '2020-07-02 15:20:31'),
+(54, 'M008', 'D309', 0, '2020-07-02 16:33:05', '2020-07-02 16:33:05'),
+(55, 'M008', 'D309', 0, '2020-07-02 17:16:43', '2020-07-02 17:16:43');
 
 -- --------------------------------------------------------
 
@@ -1107,7 +1123,7 @@ ALTER TABLE `category`
 -- AUTO_INCREMENT for table `comment`
 --
 ALTER TABLE `comment`
-  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
+  MODIFY `cid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=98;
 
 --
 -- AUTO_INCREMENT for table `course`
@@ -1149,13 +1165,13 @@ ALTER TABLE `member`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `orderId` int(5) NOT NULL AUTO_INCREMENT COMMENT '訂單編號', AUTO_INCREMENT=165;
+  MODIFY `orderId` int(5) NOT NULL AUTO_INCREMENT COMMENT '訂單編號', AUTO_INCREMENT=166;
 
 --
 -- AUTO_INCREMENT for table `order_lists`
 --
 ALTER TABLE `order_lists`
-  MODIFY `orderListId` int(10) NOT NULL AUTO_INCREMENT COMMENT '明細編碼', AUTO_INCREMENT=290;
+  MODIFY `orderListId` int(10) NOT NULL AUTO_INCREMENT COMMENT '明細編碼', AUTO_INCREMENT=293;
 
 --
 -- AUTO_INCREMENT for table `order_payment`
@@ -1167,7 +1183,7 @@ ALTER TABLE `order_payment`
 -- AUTO_INCREMENT for table `rel_coupon_member`
 --
 ALTER TABLE `rel_coupon_member`
-  MODIFY `rel_coupon_member_id` int(100) NOT NULL AUTO_INCREMENT COMMENT '流水號', AUTO_INCREMENT=36;
+  MODIFY `rel_coupon_member_id` int(100) NOT NULL AUTO_INCREMENT COMMENT '流水號', AUTO_INCREMENT=56;
 
 --
 -- AUTO_INCREMENT for table `story`
