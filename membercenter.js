@@ -156,6 +156,15 @@ router.post('/coupon/:memberId?',(req,res)=>{
         )
 })
 
+//新增折價券資料July5th
+router.post('/marketcoupon/:memberId?',(req,res)=>{
+    const memberId = req.params.memberId || ''
+    //console.log(req.params.memberId)
+    db.query(`INSERT INTO rel_coupon_member SET memberId= '${memberId}' , discountID='D310' , use_times=0`)
+        .then(res.send(`ok, ${memberId}`)
+        )
+})
+
 
 //以下的目前沒用到
 // router.get("/:memberid?/:main?", async (req, res) => {

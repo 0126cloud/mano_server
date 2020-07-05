@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Jul 04, 2020 at 06:21 PM
+-- Generation Time: Jul 05, 2020 at 04:36 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.4
 
@@ -439,9 +439,10 @@ INSERT INTO `marketing` (`id`, `discountID`, `discountName`, `discountPeriod`, `
 (6, 'D006', '二番茶新手禮', '永久', 'open', '0.75', '', '通用', '2020-04-25 20:49:23', '2020-06-19 03:53:43'),
 (7, 'D307', '課程滿十送一(限同課程）', '永久', 'open', '0.90', '', '課程', '2020-04-25 20:49:23', '2020-06-18 23:40:39'),
 (8, 'D308', '課程體驗卷', '永久', 'open', '0.00', '', '課程', '2020-04-25 20:49:23', '2020-06-18 23:40:45'),
-(10, 'D310', '即期品', '10days', 'open', '0.50', '', '商城', '2020-04-25 20:49:23', '2020-06-18 23:40:52'),
+(10, 'D312', '即期品', '10days', 'open', '0.50', '', '商城', '2020-04-25 20:49:23', '2020-07-05 20:52:39'),
 (11, 'D311', '早鳥', '60days ago & in 10days', 'open', '0.60', '', '通用', '2020-04-25 20:49:23', '2020-06-19 03:54:07'),
-(24, 'D309', '拜訪禮', '～7/30', 'open', '0.90', '', '通用', '2020-07-02 16:01:07', '2020-07-02 16:08:11');
+(24, 'D309', '拜訪禮', '～7/30', 'open', '0.90', '', '通用', '2020-07-02 16:01:07', '2020-07-02 16:08:11'),
+(25, 'D310', '振興九折', '~11/10', 'open', '0.90', NULL, '通用', '2020-07-05 17:43:15', '2020-07-05 17:43:30');
 
 -- --------------------------------------------------------
 
@@ -709,7 +710,10 @@ INSERT INTO `rel_coupon_member` (`rel_coupon_member_id`, `memberId`, `discountID
 (54, '15908927008', 'D309', 0, '2020-07-02 16:33:05', '2020-07-02 16:33:05'),
 (55, '15908927008', 'D309', 0, '2020-07-02 17:16:43', '2020-07-02 17:16:43'),
 (56, '15908927010', 'D309', 1, '2020-07-03 16:23:40', '2020-07-03 16:23:40'),
-(61, '15908927010', 'D309', 0, '2020-07-05 00:10:00', '2020-07-05 00:10:00');
+(61, '15908927010', 'D309', 0, '2020-07-05 00:10:00', '2020-07-05 00:10:00'),
+(62, '15908927010', 'D309', 0, '2020-07-05 22:27:57', '2020-07-05 22:27:57'),
+(63, '15908927010', 'D310', 0, '2020-07-05 22:34:35', '2020-07-05 22:34:35'),
+(64, 'undefined', 'D310', 0, '2020-07-05 22:35:22', '2020-07-05 22:35:22');
 
 -- --------------------------------------------------------
 
@@ -1170,7 +1174,7 @@ ALTER TABLE `item_tracking`
 -- AUTO_INCREMENT for table `marketing`
 --
 ALTER TABLE `marketing`
-  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `member`
@@ -1200,7 +1204,7 @@ ALTER TABLE `order_payment`
 -- AUTO_INCREMENT for table `rel_coupon_member`
 --
 ALTER TABLE `rel_coupon_member`
-  MODIFY `rel_coupon_member_id` int(100) NOT NULL AUTO_INCREMENT COMMENT '流水號', AUTO_INCREMENT=62;
+  MODIFY `rel_coupon_member_id` int(100) NOT NULL AUTO_INCREMENT COMMENT '流水號', AUTO_INCREMENT=65;
 
 --
 -- AUTO_INCREMENT for table `story`
